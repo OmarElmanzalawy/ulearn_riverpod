@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 
-Widget WelcomePageElement(
+Widget welcomePageElement(
   PageController controller, {
   double index = 0,
   String title = '',
@@ -12,8 +12,6 @@ Widget WelcomePageElement(
   return Column(
     children: [
       Container(
-        width: 345,
-        height: 345,
         child: Image.asset(
           imagepath,
           fit: BoxFit.fitWidth,
@@ -24,7 +22,7 @@ Widget WelcomePageElement(
         child: Text24Normal(text: title),
       ),
       Padding(
-        padding: const EdgeInsets.only(left: 15, top: 15.0, right: 15),
+        padding: const EdgeInsets.only(left: 30, top: 15.0, right: 30),
         child: Text16Normal(text: subtitle),
       ),
       _nextButton(index, controller),
@@ -36,9 +34,8 @@ Widget _nextButton(double index, PageController controller) {
   return GestureDetector(
     onTap: () {
       print(index);
-      if (index < 3) {
-        controller.animateTo(index + 1,
-            duration: Duration(milliseconds: 300), curve: Curves.bounceIn);
+      if (index <= 3) {
+        controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.linear);
       }
     },
     child: Container(
@@ -46,7 +43,7 @@ Widget _nextButton(double index, PageController controller) {
       height: 50,
       margin: EdgeInsets.only(top: 100, left: 25, right: 25),
       decoration: appBoxShadow(),
-      child: Center(child: Text16Normal(text: 'Next', color: Colors.white)),
+      child: Center(child: Text16Normal(text: index == 3 ? 'Get Started' : 'Next', color: Colors.white)),
     ),
   );
 }
