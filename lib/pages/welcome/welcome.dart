@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
+import 'package:ulearn_riverpod/pages/welcome/widgets.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+  WelcomeScreen({super.key});
+
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -13,34 +16,27 @@ class WelcomeScreen extends StatelessWidget {
         body: Stack(
           children: [
             PageView(
+              controller: _pageController,
               children: [
-                Column(
-                  children: [
-                    SizedBox(
-                      width: 345,
-                      height: 345,
-                      child: Image.asset('assets/images/reading.png', fit: BoxFit.fitWidth,),
-                    ),
-                    Text24Normal(text: 'First See Learning', color: Colors.blue)
-                  ],
-                ),
-                SizedBox(
-                  width: 345,
-                  height: 345,
-                  child: Image.asset('assets/images/boy.png'),
-                ),
-                SizedBox(
-                  width: 345,
-                  height: 345,
-                  child: Image.asset('assets/images/reading.png'),
-                ),
+                WelcomePageElement(_pageController,
+                    index: 0,
+                    title: 'First See Learning',
+                    subtitle: 'Forget about of paper knowledge in one learning',
+                    imagepath: 'assets/images/reading.png'),
+                WelcomePageElement(_pageController,
+                    index: 1,
+                    title: 'Connect with Everyone',
+                    subtitle:
+                        'Always keep in touch with your tutor and friends. Let\'s get connected!',
+                    imagepath: 'assets/images/man.png'),
+                WelcomePageElement(_pageController,
+                    index: 2,
+                    title: 'Always Fascinated Learning',
+                    subtitle:
+                        'Anywhere, Anytime. Time is at your discretion. So study wherever you want',
+                    imagepath: 'assets/images/boy.png'),
               ],
             ),
-            Positioned(
-              child: Text('Widget one'),
-              left: 20,
-              bottom: 100,
-              ),
           ],
         ),
       ),
