@@ -39,7 +39,7 @@ Widget _nextButton(double index, PageController controller,BuildContext context)
       if (index < 3) {
         controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.linear);
       }else{
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const SignIn()));
+        Navigator.pushNamed(context, '/signin');
       }
     },
     child: Container(
