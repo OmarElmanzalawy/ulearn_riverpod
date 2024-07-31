@@ -25,3 +25,16 @@ Widget Text16Normal(
     ),
   );
 }
+
+Widget Text14Normal(
+    {String text = '', Color color = AppColors.primaryThreeElementText}) {
+  return Text(
+    text,
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      fontSize: 14,
+      color: color,
+      fontWeight: FontWeight.normal,
+    ),
+  );
+}

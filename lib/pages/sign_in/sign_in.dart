@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 import 'package:ulearn_riverpod/pages/sign_in/widgets.dart';
 
 class SignIn extends StatelessWidget {
@@ -9,7 +10,14 @@ class SignIn extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: buildAppBar(),
-        body: Container(),
+        body: Column(
+          children: [
+            //top login buttons
+            thirdPartyLogin(),
+            Text14Normal(text: 'Or use your email account to login'),
+            appTextField()
+          ],
+        )
       )
     );
   }
