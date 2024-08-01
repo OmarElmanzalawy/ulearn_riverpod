@@ -27,10 +27,10 @@ Widget Text16Normal(
 }
 
 Widget Text14Normal(
-    {String text = '', Color color = AppColors.primaryThreeElementText}) {
+    {String text = '', Color color = AppColors.primaryThreeElementText,TextAlign? alignment}) {
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: alignment ?? TextAlign.center,
     style: TextStyle(
       fontSize: 14,
       color: color,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
 import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
+import 'package:ulearn_riverpod/common/widgets/app_textfield.dart';
 import 'package:ulearn_riverpod/common/widgets/button_widgets.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 import 'package:ulearn_riverpod/pages/sign_in/widgets.dart';
@@ -13,36 +14,32 @@ class SignUp extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: buildAppBar(),
+        appBar: buildAppBar(title: 'Signup'),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 20.0),
+            padding: const EdgeInsets.only(top: 60.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //top login buttons
-                thirdPartyLogin(),
-                Center(child: Text14Normal(text: 'Or use your email account to login')),
-                SizedBox(height: 50,),
-                appTextField(text: 'Email',iconName: 'user.png',hintText: 'Enter your email address'),
-                SizedBox(height: 20,),
+              children: [ 
+                Center(child: Text14Normal(text: 'Enter your details below & free sign up')),
+                const SizedBox(height: 50,),
+                appTextField(text: 'Username',iconName: 'user.png',hintText: 'Enter your username'),
+                const SizedBox(height: 20,),
+                appTextField(text: 'Email',iconName: 'lock.png',hintText: 'Enter your email'),
+                const SizedBox(height: 20,),
                 appTextField(text: 'Password',iconName: 'lock.png',hintText: 'Enter your password',sensitive: true),
-                SizedBox(height: 25,),
+                const SizedBox(height: 20,),
+                appTextField(text: 'Confirm Password',iconName: 'lock.png',hintText: 'Confirm your password',sensitive: true),
+                const SizedBox(height: 20,),
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
-                  child: textUnderline(text: 'Forgot Password'),
+                  child: Text14Normal(text: 'By creating an account you have to agree with our terms & conditions',alignment: TextAlign.start)
                 ),
-                SizedBox(height: 130,),
+                const SizedBox(height: 80,),
                 Center(
                   child: Column(
                     children: [
-                      appTextButton(title: 'Login', ontap: ()=> print('Login')),
-                      SizedBox(height: 15,),
-                      appTextButton(title: 'Signup',backgroundcolor: AppColors.primaryBackground,textColor: AppColors.primaryText,hasBorder: true,
-                      ontap: (){
-                        Navigator.pushNamed(context, '/signup');
-                      }
-                      ),
+                      appTextButton(title: 'Register', ontap: ()=> print('Register')),
                     ],
                   ),
                 )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_styles.dart';
 import 'package:ulearn_riverpod/pages/sign_in/sign_in.dart';
+import 'package:ulearn_riverpod/pages/sign_up/sign_up.dart';
 import 'package:ulearn_riverpod/pages/welcome/welcome.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,7 +19,8 @@ class MainApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/':(context) =>  WelcomeScreen(),
-        '/signin':(context) => const SignIn()
+        '/signin':(context) => const SignIn(),
+        '/signup':(context) => const SignUp(),
       },
     );
   }

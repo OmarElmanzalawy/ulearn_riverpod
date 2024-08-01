@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
+import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
+import 'package:ulearn_riverpod/common/widgets/app_textfield.dart';
 import 'package:ulearn_riverpod/common/widgets/button_widgets.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 import 'package:ulearn_riverpod/pages/sign_in/widgets.dart';
@@ -12,7 +14,7 @@ class SignIn extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: buildAppBar(),
+        appBar: buildAppBar(title: 'Login'),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 20.0),
