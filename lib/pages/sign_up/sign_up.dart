@@ -4,13 +4,17 @@ import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
 import 'package:ulearn_riverpod/common/widgets/app_textfield.dart';
 import 'package:ulearn_riverpod/common/widgets/button_widgets.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
+import 'package:ulearn_riverpod/pages/notifiers/register_notifier.dart';
 import 'package:ulearn_riverpod/pages/sign_in/widgets.dart';
+import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends ConsumerWidget {
   const SignUp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref ) {
+    final registerProvider = ref.watch(registerNotifierProvider);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
