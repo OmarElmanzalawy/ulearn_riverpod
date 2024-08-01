@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
+import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
 import 'package:ulearn_riverpod/common/widgets/button_widgets.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 import 'package:ulearn_riverpod/pages/sign_in/widgets.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {

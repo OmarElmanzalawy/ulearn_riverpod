@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearn_riverpod/common/utils/app_styles.dart';
 import 'package:ulearn_riverpod/pages/sign_in/sign_in.dart';
 import 'package:ulearn_riverpod/pages/welcome/welcome.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,16 +14,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        //Changes default back button icon
-        actionIconTheme: ActionIconThemeData(
-          backButtonIconBuilder: (context) {
-            return const Icon(Icons.arrow_back_ios);
-          },
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true
-      ),
+      theme: AppTheme.appThemeData,
       initialRoute: '/',
       routes: {
         '/':(context) =>  WelcomeScreen(),
