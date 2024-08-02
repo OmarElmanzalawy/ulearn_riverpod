@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
+import 'package:ulearn_riverpod/common/utils/global_loader/global_loader.dart';
 import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
 import 'package:ulearn_riverpod/common/widgets/app_textfield.dart';
 import 'package:ulearn_riverpod/common/widgets/button_widgets.dart';
@@ -35,99 +36,106 @@ class _SignUpState extends ConsumerState<SignUp> {
   @override
   Widget build(BuildContext context) {
     final registerProvider = ref.watch(registerNotifierProvider);
+    final isLoading = ref.watch(appLoaderProvider);
     return SafeArea(
         child: Scaffold(
             backgroundColor: Colors.white,
             appBar: buildAppBar(title: 'Signup'),
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 60.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                        child: Text14Normal(
-                            text: 'Enter your details below & free sign up')),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    appTextField(
-                      text: 'Username',
-                      iconName: 'user.png',
-                      hintText: 'Enter your username',
-                      onChanged: (value) {
-                        ref
-                            .read(registerNotifierProvider.notifier)
-                            .onUserNameChanged(value);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    appTextField(
-                      text: 'Email',
-                      iconName: 'lock.png',
-                      hintText: 'Enter your email',
-                      onChanged: (value) {
-                        ref
-                            .read(registerNotifierProvider.notifier)
-                            .onEmailChanged(value);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    appTextField(
-                      text: 'Password',
-                      iconName: 'lock.png',
-                      hintText: 'Enter your password',
-                      sensitive: true,
-                      onChanged: (value) {
-                        ref
-                            .read(registerNotifierProvider.notifier)
-                            .onPasswordChanged(value);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    appTextField(
-                      text: 'Confirm Password',
-                      iconName: 'lock.png',
-                      hintText: 'Confirm your password',
-                      sensitive: true,
-                      onChanged: (value) {
-                        ref
-                            .read(registerNotifierProvider.notifier)
-                            .onRePasswordChanged(value);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: Text14Normal(
-                            text:
-                                'By creating an account you have to agree with our terms & conditions',
-                            alignment: TextAlign.start)),
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    Center(
+            body: !isLoading
+                ? SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 60.0),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          appTextButton(
-                              title: 'Register',
-                              ontap: () {
-                                _controller.handleSignUp();
-                              }),
+                          Center(
+                              child: Text14Normal(
+                                  text:
+                                      'Enter your details below & free sign up')),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          appTextField(
+                            text: 'Username',
+                            iconName: 'user.png',
+                            hintText: 'Enter your username',
+                            onChanged: (value) {
+                              ref
+                                  .read(registerNotifierProvider.notifier)
+                                  .onUserNameChanged(value);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          appTextField(
+                            text: 'Email',
+                            iconName: 'lock.png',
+                            hintText: 'Enter your email',
+                            onChanged: (value) {
+                              ref
+                                  .read(registerNotifierProvider.notifier)
+                                  .onEmailChanged(value);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          appTextField(
+                            text: 'Password',
+                            iconName: 'lock.png',
+                            hintText: 'Enter your password',
+                            sensitive: true,
+                            onChanged: (value) {
+                              ref
+                                  .read(registerNotifierProvider.notifier)
+                                  .onPasswordChanged(value);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          appTextField(
+                            text: 'Confirm Password',
+                            iconName: 'lock.png',
+                            hintText: 'Confirm your password',
+                            sensitive: true,
+                            onChanged: (value) {
+                              ref
+                                  .read(registerNotifierProvider.notifier)
+                                  .onRePasswordChanged(value);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                              padding: const EdgeInsets.only(left: 25.0),
+                              child: Text14Normal(
+                                  text:
+                                      'By creating an account you have to agree with our terms & conditions',
+                                  alignment: TextAlign.start)),
+                          const SizedBox(
+                            height: 80,
+                          ),
+                          Center(
+                            child: Column(
+                              children: [
+                                appTextButton(
+                                    title: 'Register',
+                                    ontap: () {
+                                      _controller.handleSignUp();
+                                    }),
+                              ],
+                            ),
+                          )
                         ],
                       ),
-                    )
-                  ],
-                ),
-              ),
-            )));
+                    ),
+                  )
+                : Center(
+                    child: CircularProgressIndicator(
+                    backgroundColor: AppColors.primaryElement,
+                  ))));
   }
 }
