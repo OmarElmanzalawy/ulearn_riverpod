@@ -56,6 +56,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                             height: 50,
                           ),
                           appTextField(
+                            controller: _controller.userNameController,
                             text: 'Username',
                             iconName: 'user.png',
                             hintText: 'Enter your username',
@@ -69,6 +70,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                             height: 20,
                           ),
                           appTextField(
+                            controller: _controller.emailController,
                             text: 'Email',
                             iconName: 'lock.png',
                             hintText: 'Enter your email',
@@ -82,6 +84,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                             height: 20,
                           ),
                           appTextField(
+                            controller:  _controller.passwordController,
                             text: 'Password',
                             iconName: 'lock.png',
                             hintText: 'Enter your password',
@@ -96,6 +99,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                             height: 20,
                           ),
                           appTextField(
+                            controller: _controller.rePasswordController,
                             text: 'Confirm Password',
                             iconName: 'lock.png',
                             hintText: 'Confirm your password',

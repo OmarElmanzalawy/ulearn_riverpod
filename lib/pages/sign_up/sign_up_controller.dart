@@ -9,8 +9,19 @@ class SignUpController {
   final WidgetRef ref;
   SignUpController(this.ref);
 
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController rePasswordController = TextEditingController();
+
   void handleSignUp() async {
     var state = ref.read(registerNotifierProvider);
+
+    //To preserve text inside textfields if ui get rebuilt so user doesn't have to retype it again
+    userNameController.text = state.userName;
+    emailController.text = state.email;
+    passwordController.text = state.password;
+    rePasswordController.text = state.rePassword;
 
     print('Your name is ${state.userName}');
     print('Your email is ${state.email}');
@@ -29,11 +40,6 @@ class SignUpController {
 
     if (state.password.isEmpty || state.rePassword.isEmpty) {
       popupInfo('Fill password');
-      return;
-    }
-
-    if (state.password.length <= 5) {
-      popupInfo('Password is too short');
       return;
     }
 

@@ -5,6 +5,7 @@ import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 Widget appTextField(
     {String text = '',
     required String iconName,
+    TextEditingController? controller,
     String hintText = 'default',
     bool sensitive = false,
     void Function(String value)? onChanged}) {
@@ -36,6 +37,7 @@ Widget appTextField(
                 width: 280,
                 height: 50,
                 child: TextField(
+                  controller: controller,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                       //hintStyle: TextStyle(color: AppColors.primaryThreeElementText),

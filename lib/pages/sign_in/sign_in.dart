@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
+import 'package:ulearn_riverpod/common/utils/global_loader/global_loader.dart';
 import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
 import 'package:ulearn_riverpod/common/widgets/app_textfield.dart';
 import 'package:ulearn_riverpod/common/widgets/button_widgets.dart';
@@ -29,11 +30,13 @@ class _SignInState extends ConsumerState<SignIn> {
   @override
   Widget build(BuildContext context) {
     final signInProvider = ref.watch(signInNotifierProvider);
+    final loader = ref.watch(appLoaderProvider);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: buildAppBar(title: 'Login'),
-        body: SingleChildScrollView(
+        body: loader ? const Center(child: CircularProgressIndicator(backgroundColor: AppColors.primaryElement,),) :
+        SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 20.0),
             child: Column(
@@ -43,13 +46,13 @@ class _SignInState extends ConsumerState<SignIn> {
                 thirdPartyLogin(),
                 Center(child: Text14Normal(text: 'Or use your email account to login')),
                 SizedBox(height: 50,),
-                appTextField(text: 'Email',iconName: 'user.png',hintText: 'Enter your email address',
+                appTextField(text: 'Email',iconName: 'user.png',hintText: 'Enter your email address',controller: _controller.emailController,
                 onChanged: (value) {
                   ref.read(signInNotifierProvider.notifier).onEmailChanged(value);
                 },
                 ),
                 SizedBox(height: 20,),
-                appTextField(text: 'Password',iconName: 'lock.png',hintText: 'Enter your password',sensitive: true,
+                appTextField(text: 'Password',iconName: 'lock.png',hintText: 'Enter your password',sensitive: true,controller: _controller.passwordController,
                   onChanged: (value) {
                   ref.read(signInNotifierProvider.notifier).onPasswordChanged(value);
                 },
