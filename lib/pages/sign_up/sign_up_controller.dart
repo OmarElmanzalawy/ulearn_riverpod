@@ -62,7 +62,9 @@ class SignUpController {
         popupInfo('A verification email has been sent to you.');
         context.pop();
       }
-    } catch (e) {}
+    } catch (e) {
+      print('error: $e');
+    }
     ref.read(appLoaderProvider.notifier).setValue(false);
   }
 }
