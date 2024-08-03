@@ -62,7 +62,21 @@ class SignUpController {
         popupInfo('A verification email has been sent to you.');
         context.pop();
       }
-    } catch (e) {
+    }
+    on FirebaseAuthException catch(e){
+
+      if(e.code=='weak-password'){
+        popupInfo('This password is too weak');
+      }
+      else if(e.code=='email-already-in-use'){
+        popupInfo('This email has already been registered with an account');
+      }
+      else if(e.code=='invalid-email'){
+        popupInfo('Invalid Email');
+      }
+
+    }
+     catch (e) {
       print('error: $e');
     }
     ref.read(appLoaderProvider.notifier).setValue(false);
