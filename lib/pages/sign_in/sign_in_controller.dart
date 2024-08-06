@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearn_riverpod/common/entities/entities.dart';
@@ -101,7 +102,21 @@ class SignInController{
   }
       void asyncPostAllData(LoginRequestEntity loginRequestEntity){
       
+        try{
 
+          //TODO: TALK TO SERVER
+
+          //TODO: SAVE USER INFO TO LOCAL STORAGE
+
+          //NAVIGATE TO NEW PAGE
+          Navigator.of(ref.context).pushNamedAndRemoveUntil("/home", (route)=> false);
+
+        }
+        catch(e){
+          if (kDebugMode) {
+            print(e.toString());
+          }
+        }
      
     }
 

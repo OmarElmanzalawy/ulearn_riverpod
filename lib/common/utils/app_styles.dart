@@ -4,6 +4,9 @@ import 'package:ulearn_riverpod/common/utils/app_colors.dart';
 class AppTheme{
 
   static ThemeData appThemeData = ThemeData(
+    splashColor: Colors.transparent,
+    //splashFactory: InkSparkle.constantTurbulenceSeedSplashFactory ,
+    scaffoldBackgroundColor: Colors.white,
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
     brightness: Brightness.light,
