@@ -21,7 +21,7 @@ class _HomeState extends ConsumerState<Home> {
     return SafeArea(
       child: Scaffold(
         appBar: buildAppBar(title: 'Home Page'),
-        body: Container(),
+        body: homeScreens(index),
         bottomNavigationBar: Container(
           width: 375,
           height: 58,
