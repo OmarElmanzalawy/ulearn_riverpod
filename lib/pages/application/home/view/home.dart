@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
                   child: Text24Normal(text: 'Hello,',color: AppColors.primaryThreeElementText,fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  child: Text24Normal(text: Global.storageService.getString(AppConstants.STORAGE_USER_PROFILE_KEY),fontWeight: FontWeight.bold),
+                  child: Text24Normal(text: Global.storageService.getUserProfile()['age'].toString(),fontWeight: FontWeight.bold),
                 ),
 
               ],

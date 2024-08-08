@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +112,9 @@ class SignInController{
           //TODO: TALK TO SERVER
 
           //TODO: SAVE USER INFO TO LOCAL STORAGE
-          Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
+          Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY,jsonEncode({
+            'name': 'Manzalawy', 'email':'omarmanz2002@gmail.com','age':22
+          }));
           Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
           //NAVIGATE TO NEW PAGE

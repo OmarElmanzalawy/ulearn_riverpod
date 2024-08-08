@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ulearn_riverpod/common/models/entities.dart';
 import 'package:ulearn_riverpod/common/utils/constants.dart';
 
 class StorageService{
@@ -25,6 +28,13 @@ class StorageService{
 
   bool isLoggedIn(){
     return _pref.getString(AppConstants.STORAGE_USER_PROFILE_KEY)!=null?true:false;
+  }
+
+  Map getUserProfile(){
+    String? profile = _pref.getString(AppConstants.STORAGE_USER_PROFILE_KEY) ?? '';
+    var jsonProfile = jsonDecode(profile);
+    UserProfile userProfile = UserProfile.fromJson(jsonProfile);
+    return jsonProfile;
   }
 
 }

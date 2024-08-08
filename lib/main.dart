@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: AppTheme.appThemeData,
-      initialRoute:
+      initialRoute: //RouteNames.WELCOME,
           FirebaseAuth.instance.currentUser == null ? RouteNames.WELCOME : RouteNames.APP,
       routes: {
         RouteNames.WELCOME: (context) => WelcomeScreen(),
