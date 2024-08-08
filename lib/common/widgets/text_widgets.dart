@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
 
-Widget Text24Normal({String text = '', Color color = AppColors.primaryText}) {
+Widget Text24Normal({String text = '', Color color = AppColors.primaryText,FontWeight fontWeight = FontWeight.normal}) {
   return Text(
     text,
     textAlign: TextAlign.center,
     style: TextStyle(
       fontSize: 24,
       color: color,
-      fontWeight: FontWeight.normal,
+      fontWeight: fontWeight
     ),
   );
 }

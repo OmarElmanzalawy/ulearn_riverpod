@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearn_riverpod/common/routes/route_names.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
 import 'package:ulearn_riverpod/common/utils/global_loader/global_loader.dart';
 import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
@@ -72,7 +73,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       SizedBox(height: 15,),
                       appTextButton(title: 'Signup',backgroundcolor: AppColors.primaryBackground,textColor: AppColors.primaryText,hasBorder: true,
                       ontap: (){
-                        Navigator.pushNamed(context, '/signup');
+                        Navigator.pushNamed(context, RouteNames.SIGN_UP);
                       }
                       ),
                     ],

@@ -3,8 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearn_riverpod/common/entities/entities.dart';
+import 'package:ulearn_riverpod/common/routes/route_names.dart';
+import 'package:ulearn_riverpod/common/utils/constants.dart';
 import 'package:ulearn_riverpod/common/utils/global_loader/global_loader.dart';
 import 'package:ulearn_riverpod/common/widgets/pop_up_message.dart';
+import 'package:ulearn_riverpod/global.dart';
 import 'package:ulearn_riverpod/pages/notifiers/sign_in_notifier.dart';
 
 class SignInController{
@@ -107,9 +110,11 @@ class SignInController{
           //TODO: TALK TO SERVER
 
           //TODO: SAVE USER INFO TO LOCAL STORAGE
+          Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
+          Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
           //NAVIGATE TO NEW PAGE
-          Navigator.of(ref.context).pushNamedAndRemoveUntil("/home", (route)=> false);
+          Navigator.of(ref.context).pushNamedAndRemoveUntil(RouteNames.APP, (route)=> false);
 
         }
         catch(e){

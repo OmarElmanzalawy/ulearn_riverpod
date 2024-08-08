@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearn_riverpod/common/routes/route_names.dart';
 import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 import 'package:ulearn_riverpod/pages/sign_in/sign_in.dart';
@@ -39,7 +40,7 @@ Widget _nextButton(double index, PageController controller,BuildContext context)
       if (index < 3) {
         controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.linear);
       }else{
-        Navigator.pushNamed(context, '/signin');
+        Navigator.pushNamed(context, RouteNames.SIGN_IN);
       }
     },
     child: Container(

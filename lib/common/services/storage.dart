@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ulearn_riverpod/common/utils/constants.dart';
 
 class StorageService{
 
@@ -12,6 +13,18 @@ class StorageService{
 
   Future<bool> setString(String key,String value)async{
     return await _pref.setString(key, value);
+  }
+
+  String getString(String key){
+    return _pref.getString(key)??'Couldn\' fetch string';
+  }
+
+  Future<bool> setBool(String key, bool value) async {
+    return await _pref.setBool(key, value);
+  }
+
+  bool isLoggedIn(){
+    return _pref.getString(AppConstants.STORAGE_USER_PROFILE_KEY)!=null?true:false;
   }
 
 }
