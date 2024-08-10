@@ -4,7 +4,7 @@ import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
 import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
 import 'package:ulearn_riverpod/pages/application/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ulearn_riverpod/pages/notifiers/home_nav_notifier.dart';
+import 'package:ulearn_riverpod/pages/notifiers/app_nav_notifier.dart';
 
 class App extends ConsumerStatefulWidget {
   const App({super.key});

@@ -63,3 +63,37 @@ Widget appTextField(
     ),
   );
 }
+
+Widget appTextFieldOnly({
+  TextEditingController? controller,
+  String hintText = 'hint text',
+  double width = 280,
+  double height = 50,
+  void Function(String value)? onChanged,
+  bool sensitive = false,
+}){
+  return Container(
+                width: width,
+                height: height,
+                child: TextField(
+                  controller: controller,
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 10,top: 7),
+                      //hintStyle: TextStyle(color: AppColors.primaryThreeElementText),
+                      hintText: hintText,
+                      border: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                        color: Colors.transparent,
+                      )),
+                      //default border without any input
+                      enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.transparent)),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.transparent))),
+                  onChanged: (value) => onChanged!(value),
+                  maxLines: 1,
+                  obscureText: sensitive,
+                ),
+              );
+}

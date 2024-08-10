@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ulearn_riverpod/pages/notifiers/register_state.dart';
-part 'home_nav_notifier.g.dart';
+part 'app_nav_notifier.g.dart';
 
 @riverpod
 class HomeNavNotifier extends _$HomeNavNotifier{

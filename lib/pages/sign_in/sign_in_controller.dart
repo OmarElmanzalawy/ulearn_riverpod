@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ulearn_riverpod/common/entities/entities.dart';
+import 'package:ulearn_riverpod/common/models/entities.dart';
 import 'package:ulearn_riverpod/common/routes/route_names.dart';
 import 'package:ulearn_riverpod/common/utils/constants.dart';
 import 'package:ulearn_riverpod/common/utils/global_loader/global_loader.dart';
