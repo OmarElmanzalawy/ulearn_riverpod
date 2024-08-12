@@ -45,32 +45,32 @@ class _SignInState extends ConsumerState<SignIn> {
               children: [
                 //top login buttons
                 thirdPartyLogin(),
-                Center(child: Text14Normal(text: 'Or use your email account to login')),
-                SizedBox(height: 50,),
+                const Center(child: Text14Normal(text: 'Or use your email account to login')),
+                const SizedBox(height: 50,),
                 appTextField(text: 'Email',iconName: 'user.png',hintText: 'Enter your email address',controller: _controller.emailController,
                 onChanged: (value) {
                   ref.read(signInNotifierProvider.notifier).onEmailChanged(value);
                 },
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 appTextField(text: 'Password',iconName: 'lock.png',hintText: 'Enter your password',sensitive: true,controller: _controller.passwordController,
                   onChanged: (value) {
                   ref.read(signInNotifierProvider.notifier).onPasswordChanged(value);
                 },
                 ),
-                SizedBox(height: 25,),
+                const SizedBox(height: 25,),
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
                   child: textUnderline(text: 'Forgot Password'),
                 ),
-                SizedBox(height: 130,),
+                const SizedBox(height: 130,),
                 Center(
                   child: Column(
                     children: [
                       appTextButton(title: 'Login', ontap: (){
                         _controller.handleSignIn();
                       }),
-                      SizedBox(height: 15,),
+                      const SizedBox(height: 15,),
                       appTextButton(title: 'Signup',backgroundcolor: AppColors.primaryBackground,textColor: AppColors.primaryText,hasBorder: true,
                       ontap: (){
                         Navigator.pushNamed(context, RouteNames.SIGN_UP);

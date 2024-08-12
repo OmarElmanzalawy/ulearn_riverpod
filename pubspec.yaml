@@ -12,6 +12,14 @@ dependencies:
     sdk: flutter
   riverpod_generator: ^2.4.0
 
+  cloud_firestore: any
+  shared_preferences: any
+  riverpod_annotation: any
+  fluttertoast: any
+  firebase_core: any
+  firebase_auth: any
+  flutter_riverpod: any
+  dots_indicator: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

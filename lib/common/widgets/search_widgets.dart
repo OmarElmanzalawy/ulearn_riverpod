@@ -5,7 +5,7 @@ import 'package:ulearn_riverpod/common/widgets/app_image.dart';
 import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
 import 'package:ulearn_riverpod/common/widgets/app_textfield.dart';
 
-Widget searchBar(){
+Widget searchBar() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -20,12 +20,10 @@ Widget searchBar(){
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 17.0),
-              child: appImage(
-                imagePath: ImageRes.search2
-              ),
+              child: appImage(imagePath: ImageRes.search2),
             ),
-            appTextFieldOnly(width: 265,height:40,hintText: 'Search your course'),
-            
+            appTextFieldOnly(
+                width: 265, height: 40, hintText: 'Search your course'),
           ],
         ),
       ),
@@ -34,19 +32,15 @@ Widget searchBar(){
   );
 }
 
-Widget searchBarBtn(){
-
+Widget searchBarBtn() {
   return GestureDetector(
     child: Container(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       width: 40,
       height: 40,
       child: appImage(imagePath: ImageRes.options),
-      decoration: appBoxShadow(
-        border: Border.all(color: AppColors.primaryElement)
-      ),
+      decoration:
+          appBoxShadow(border: Border.all(color: AppColors.primaryElement)),
     ),
   );
-
 }
-

@@ -4,41 +4,40 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearn_riverpod/pages/application/home/providers/home_banner_notifier.dart';
 
-Widget banner({required WidgetRef ref}) {
+Widget banner({required WidgetRef ref, required PageController controller}) {
   int index = ref.watch(homeBannerDotsProvider);
-  PageController _pageController = PageController(initialPage: index);
   return Column(
     children: [
       SizedBox(
-          width: 360,
-          height: 160,
-          child: PageView(
-            controller: _pageController,
-            children: [
-              bannerItem(imagepath: ImageRes.banner1),
-              bannerItem(imagepath: ImageRes.banner2),
-              bannerItem(imagepath: ImageRes.banner3),
-            ],
-            onPageChanged: (value) {
-              ref.read(homeBannerDotsProvider.notifier).setIndex(value);
-              print(ref.read(homeBannerDotsProvider.notifier).state);
-            },
-          ),
-          ),
-      SizedBox(height: 5,),
+        width: 360,
+        height: 160,
+        child: PageView(
+          controller: controller,
+          children: [
+            bannerItem(imagepath: ImageRes.banner1),
+            bannerItem(imagepath: ImageRes.banner2),
+            bannerItem(imagepath: ImageRes.banner3),
+          ],
+          onPageChanged: (value) {
+            ref.read(homeBannerDotsProvider.notifier).setIndex(value);
+            print(ref.read(homeBannerDotsProvider.notifier).state);
+          },
+        ),
+      ),
+      const SizedBox(
+        height: 5,
+      ),
       DotsIndicator(
-              position: index,
-              dotsCount: 3,
-              mainAxisAlignment: MainAxisAlignment.center,
-            decorator: DotsDecorator(
-              color: Colors.blue,
-              size: const Size.square(9),
-              activeSize: Size(24,8),
-              activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5)
-              )
-            ),
-            )
+        position: index,
+        dotsCount: 3,
+        mainAxisAlignment: MainAxisAlignment.center,
+        decorator: DotsDecorator(
+            color: Colors.blue,
+            size: const Size.square(9),
+            activeSize: const Size(24, 8),
+            activeShape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+      )
     ],
   );
 }
@@ -49,9 +48,7 @@ Widget bannerItem({String? imagepath}) {
     height: 160,
     decoration: BoxDecoration(
       image: DecorationImage(
-        image: AssetImage(imagepath?? ImageRes.banner1),
-        fit: BoxFit.fill
-        ),
+          image: AssetImage(imagepath ?? ImageRes.banner1), fit: BoxFit.fill),
     ),
   );
 }

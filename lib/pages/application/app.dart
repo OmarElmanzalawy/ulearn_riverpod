@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
-import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
 import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
 import 'package:ulearn_riverpod/pages/application/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,7 +24,7 @@ class _HomeState extends ConsumerState<App> {
           width: 375,
           height: 58,
           decoration: appBoxShadow().copyWith(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20)
             )

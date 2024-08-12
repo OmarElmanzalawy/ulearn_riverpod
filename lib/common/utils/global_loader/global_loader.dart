@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:ulearn_riverpod/pages/notifiers/register_state.dart';
 part 'global_loader.g.dart';
 
 @riverpod

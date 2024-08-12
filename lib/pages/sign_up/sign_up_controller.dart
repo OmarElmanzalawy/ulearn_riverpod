@@ -61,14 +61,12 @@ class SignUpController {
           .createUserWithEmailAndPassword(
               email: state.email, password: state.password);
 
-      if (credential != null) {
-        await credential.user?.sendEmailVerification();
-        await credential.user?.updateDisplayName(state.userName);
+      await credential.user?.sendEmailVerification();
+      await credential.user?.updateDisplayName(state.userName);
 
-        popupInfo('A verification email has been sent to you.');
-        context.pop();
-      }
-    }
+      popupInfo('A verification email has been sent to you.');
+      context.pop();
+        }
     on FirebaseAuthException catch(e){
 
       if(e.code=='weak-password'){

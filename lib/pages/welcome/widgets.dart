@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/routes/route_names.dart';
 import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
-import 'package:ulearn_riverpod/pages/sign_in/sign_in.dart';
 
 Widget welcomePageElement(
   PageController controller, {
@@ -28,27 +27,31 @@ Widget welcomePageElement(
         padding: const EdgeInsets.only(left: 30, top: 15.0, right: 30),
         child: Text16Normal(text: subtitle),
       ),
-      _nextButton(index, controller,context),
+      _nextButton(index, controller, context),
     ],
   );
 }
 
-Widget _nextButton(double index, PageController controller,BuildContext context) {
+Widget _nextButton(
+    double index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
       print(index);
       if (index < 3) {
-        controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.linear);
-      }else{
+        controller.nextPage(
+            duration: const Duration(milliseconds: 300), curve: Curves.linear);
+      } else {
         Navigator.pushNamed(context, RouteNames.SIGN_IN);
       }
     },
     child: Container(
       width: 325,
       height: 50,
-      margin: EdgeInsets.only(top: 100, left: 25, right: 25),
+      margin: const EdgeInsets.only(top: 100, left: 25, right: 25),
       decoration: appBoxShadow(),
-      child: Center(child: Text16Normal(text: index == 3 ? 'Get Started' : 'Next', color: Colors.white)),
+      child: Center(
+          child: Text16Normal(
+              text: index == 3 ? 'Get Started' : 'Next', color: Colors.white)),
     ),
   );
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ulearn_riverpod/common/utils/app_colors.dart';
 Widget appImage({
   String imagePath = 'assets/icons/user.png',
   double width = 16,

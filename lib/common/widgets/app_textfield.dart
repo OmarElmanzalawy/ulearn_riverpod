@@ -72,14 +72,14 @@ Widget appTextFieldOnly({
   void Function(String value)? onChanged,
   bool sensitive = false,
 }){
-  return Container(
+  return SizedBox(
                 width: width,
                 height: height,
                 child: TextField(
                   controller: controller,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 10,top: 7),
+                    contentPadding: const EdgeInsets.only(left: 10,top: 7),
                       //hintStyle: TextStyle(color: AppColors.primaryThreeElementText),
                       hintText: hintText,
                       border: const OutlineInputBorder(

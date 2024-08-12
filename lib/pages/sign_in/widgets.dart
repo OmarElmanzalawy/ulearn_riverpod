@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
-import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
-import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 
 Widget thirdPartyLogin(){
   return Container(
@@ -22,7 +20,7 @@ Widget thirdPartyLogin(){
 Widget _loginButton(String imagepath){
   return GestureDetector(
     onTap: (){},
-    child: Container(
+    child: SizedBox(
       width: 40,
       height: 40,
       child: Image.asset(imagepath,fit: BoxFit.cover,),
@@ -36,7 +34,7 @@ Widget textUnderline({String text=''}){
   return GestureDetector(
     onTap: (){},
     child: Text(text,
-    style: TextStyle(
+    style: const TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
       color: AppColors.primaryText,
