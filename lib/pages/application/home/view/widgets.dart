@@ -6,12 +6,14 @@ import 'package:ulearn_riverpod/pages/application/home/providers/home_banner_not
 
 Widget banner({required WidgetRef ref}) {
   int index = ref.watch(homeBannerDotsProvider);
+  PageController _pageController = PageController(initialPage: index);
   return Column(
     children: [
       SizedBox(
           width: 360,
           height: 160,
           child: PageView(
+            controller: _pageController,
             children: [
               bannerItem(imagepath: ImageRes.banner1),
               bannerItem(imagepath: ImageRes.banner2),
@@ -19,6 +21,7 @@ Widget banner({required WidgetRef ref}) {
             ],
             onPageChanged: (value) {
               ref.read(homeBannerDotsProvider.notifier).setIndex(value);
+              print(ref.read(homeBannerDotsProvider.notifier).state);
             },
           ),
           ),
