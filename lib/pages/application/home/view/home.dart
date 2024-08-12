@@ -34,7 +34,8 @@ class _HomeState extends ConsumerState<Home> {
   ) {
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(title: 'Home'),
+        backgroundColor: Colors.white,
+        appBar: homeAppBar(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: SingleChildScrollView(
@@ -63,6 +64,7 @@ class _HomeState extends ConsumerState<Home> {
                   height: 20,
                 ),
                 banner(ref: ref, controller: _controller),
+                const HomeMenuBar(),
               ],
             ),
           ),

@@ -24,8 +24,9 @@ class Global {
         print('User is currently signed out');
       } else {
         print('User is signed in');
-        await FirebaseAuth.instance.signOut();
-        print('signed out');
+        //FOR DEBUGGING ONLY
+        /*await FirebaseAuth.instance.signOut();
+        print('signed out');*/
       }
     });
     storageService = await StorageService().init();
