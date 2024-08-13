@@ -71,6 +71,29 @@ class Text14Normal extends StatelessWidget {
   }
 }
 
+class Text11Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight weight;
+  const Text11Normal(
+      {super.key,
+      required this.text,
+      this.color = AppColors.primaryElement,
+      this.weight = FontWeight.normal});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: 10,
+        color: color,
+        fontWeight: weight,
+      ),
+    );
+  }
+}
+
 class Text10Normal extends StatelessWidget {
   final String text;
   final Color color;

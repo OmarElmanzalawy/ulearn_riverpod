@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ulearn_riverpod/common/utils/app_colors.dart';
 import 'package:ulearn_riverpod/common/utils/constants.dart';
 import 'package:ulearn_riverpod/common/widgets/app_bar.dart';
+import 'package:ulearn_riverpod/common/widgets/app_image.dart';
 import 'package:ulearn_riverpod/common/widgets/search_widgets.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 import 'package:ulearn_riverpod/global.dart';
@@ -65,6 +66,7 @@ class _HomeState extends ConsumerState<Home> {
                 ),
                 banner(ref: ref, controller: _controller),
                 const HomeMenuBar(),
+                CourseGrid(),
               ],
             ),
           ),

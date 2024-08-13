@@ -23,7 +23,10 @@ Widget searchBar() {
               child: appImage(imagePath: ImageRes.search2),
             ),
             appTextFieldOnly(
-                width: 265, height: 40, hintText: 'Search your course'),
+                width: 265, height: 40, hintText: 'Search your course',
+                onChanged: (value) {
+                  
+                },),         
           ],
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:ulearn_riverpod/common/utils/image_res.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearn_riverpod/common/widgets/app_image.dart';
+import 'package:ulearn_riverpod/common/widgets/app_shadow.dart';
 import 'package:ulearn_riverpod/common/widgets/text_widgets.dart';
 import 'package:ulearn_riverpod/pages/application/home/providers/home_banner_notifier.dart';
 
@@ -87,26 +88,83 @@ class HomeMenuBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 15),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          const Text16Normal(
-            text: 'Choose your course',
-            color: AppColors.primaryText,
-            weight: FontWeight.bold,
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const Text16Normal(
+                text: 'Choose your course',
+                color: AppColors.primaryText,
+                weight: FontWeight.bold,
+              ),
+              GestureDetector(
+                child: Text14Normal(
+                  text: 'See all',
+                  color: AppColors.primaryThreeElementText,
+                  weight: FontWeight.bold,
+                ),
+              )
+            ],
           ),
-          GestureDetector(
-            child: Text14Normal(
-              text: 'See all',
-              color: AppColors.primaryThreeElementText,
-              weight: FontWeight.bold,
+        ),
+        //course item buttons
+        SizedBox(height: 20,),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              margin: EdgeInsets.only(right: 30),
+              decoration: appBoxShadow(color: AppColors.primaryElement,radius: 7),
+              padding: EdgeInsets.symmetric(vertical: 5,horizontal: 15),
+                child: Text11Normal(
+              text: 'All',
+              color: AppColors.primaryElementText,
             ),
-          )
-        ],
-      ),
+            ),
+                          Container(
+                            margin: EdgeInsets.only(right: 30),
+                            //decoration: 'Popular',
+              padding: EdgeInsets.symmetric(vertical: 5,horizontal: 15),
+                child: Text11Normal(
+              text: 'Popular',
+              color: AppColors.primaryThreeElementText,
+            ),
+            ),
+                          Container(
+                            margin: EdgeInsets.only(right: 30),
+                            //decoration: appBoxShadow(color: AppColors.primaryElement,radius: 7),
+              padding: EdgeInsets.symmetric(vertical: 5,horizontal: 15),
+                child: Text11Normal(
+              text: 'Newest',
+              color: AppColors.primaryThreeElementText,
+            ),
+            )
+          ],
+        )
+      ],
     );
+  }
+}
+
+class CourseGrid extends StatelessWidget {
+  const CourseGrid({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+                  child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,crossAxisSpacing: 40,mainAxisSpacing: 40),
+                  physics: ScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 6,
+                   
+                  itemBuilder: (context,int index){
+                    return appImage();
+                  }
+                  ),
+                );
   }
 }
